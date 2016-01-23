@@ -4,7 +4,7 @@ var app = angular.module('traveller', ['ngRoute', 'ui-notification']);
 
 app.config(['$routeProvider', '$locationProvider', function($routeProvider,$locationProvider) {
   $routeProvider.when('/', {
-    templateUrl: 'pages/home.html',
+    templateUrl: 'pages/home.hbs',
     controller: 'HomeCtrl'
   })
   .when('/register', {

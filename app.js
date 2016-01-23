@@ -6,7 +6,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var Promise = require('bluebird');
-
+var i18n = require('i18n');
+hbs = require('hbs');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -14,6 +15,12 @@ var users = require('./routes/users');
 var app = express();
 
 
+// minimal config
+i18n.configure({
+  locales: ['en', 'ar'],
+  cookie: 'locale',
+  directory: __dirname + '/locales'
+});
 
 var config = require('./config'); // get our config file
 
@@ -27,9 +34,11 @@ mongoose.Promise = Promise;
 mongoose.connect(config.url, options);
 
 // view engine setup
-app.engine('html', require('ejs').renderFile);
+///app.engine('html', require('ejs').renderFile);
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'html');
+//app.set('view engine', 'html');
+app.set('view engine', 'hbs');
+app.engine('hbs', hbs.__express);
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -39,6 +48,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(i18n.init);
 app.use('/', routes);
 app.use('/users', users);
 
