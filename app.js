@@ -4,6 +4,9 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
+var Promise = require('bluebird');
+
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -11,7 +14,7 @@ var users = require('./routes/users');
 var app = express();
 
 
-var mongoose = require('mongoose');
+
 var config = require('./config'); // get our config file
 
 var options = {
@@ -20,6 +23,7 @@ var options = {
   user: config.user,
   pass: config.password
 }
+mongoose.Promise = Promise;
 mongoose.connect(config.url, options);
 
 // view engine setup
