@@ -27,8 +27,9 @@ mongoose.Promise = Promise;
 mongoose.connect(config.url, options);
 
 // view engine setup
+app.engine('html', require('ejs').renderFile);
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set('view engine', 'html');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
