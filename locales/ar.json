@@ -1,3 +1,9 @@
 {
-  "hello" : "مرحباً بك"
+  "Hello": "مرحبا بك",
+  "trips": "رحلات",
+  "bootstrap-rtl": "/css/bootstrap/bootstrap-rtl.min.css",
+  "navbar-rtl" : "/css/navbar-rtl.css",
+  "language" : "العربية",
+  "lan" : "English",
+  "lan-type" : "en"
 }

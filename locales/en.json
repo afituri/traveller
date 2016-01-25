@@ -1,3 +1,9 @@
 {
-  "hello" : "Hello Sir"
+	"Hello": "Hello Sir",
+	"trips": "trips",
+	"bootstrap-rtl": [],
+	"navbar-rtl": [],
+  "language" : "English",
+  "lan" : "العربية",
+  "lan-type" : "ar"
 }

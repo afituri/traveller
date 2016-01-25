@@ -4,28 +4,21 @@ var app = angular.module('traveller', ['ngRoute', 'ui-notification']);
 
 app.config(['$routeProvider', '$locationProvider', function($routeProvider,$locationProvider) {
   $routeProvider.when('/', {
-    templateUrl: 'pages/home.hbs',
+    templateUrl: 'pages/home',
     controller: 'HomeCtrl'
   })
-  .when('/register', {
-    templateUrl: 'pages/register.html',
-    controller: 'RegisterCtrl'
-  })
-  .when('/product/:id', {
-    templateUrl: 'pages/product.html',
-    controller: 'ProductCtrl'
-  })
-  .when('/cart', {
-    templateUrl: 'pages/cart.html'
-  })
-  .when('/category/:id', {
-    templateUrl: 'pages/product.html'
-  })
-  .when('/404', {
-    templateUrl: 'pages/404.html'
-  })
-  .otherwise({redirectTo:'/404'});
+  .otherwise({
+    redirectTo:'/'
+  });
+  $locationProvider.html5Mode({
+    enabled: true,
+    requireBase: false
+  });
 }]);
+// app.config(function($interpolateProvider) {
+//   $interpolateProvider.startSymbol('{[{');
+//   $interpolateProvider.endSymbol('}]}');
+// });
 // Coustom Directive Start
 // app.directive("matchVerify", function() {
 //   return {
@@ -101,7 +94,7 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider,$loca
 //     errorMessages['activityKind'] = "الرجاء ادخال نوع النشاط";
 //   });
 // });
-app.controller('MainMaxCtrl', ['$scope', '$http', function($scope, $http) {
+app.controller('HomeCtrl', ['$scope', '$http', function($scope, $http) {
   $scope.formModel = {};
   $scope.onSubmit = function(){
     console.log("Hey i'm submitted");

@@ -8,7 +8,7 @@
   src : url("../fonts/DroidKufi-Regular.ttf") format("truetype");
 }
 body {
-  /*font-family: 'JFFlat', sans-serif;*/
+  font-family: 'droidkufi', sans-serif;
   /*padding-top: 10px;*/
 }
 .footer{
